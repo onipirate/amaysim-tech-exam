@@ -9,6 +9,10 @@ class ReferFriendPage < BrowserContainer
     Watir::Wait.until {thanks_for_sharing_text.exists?}
   end
 
+  def thank_you_message
+    thanks_for_sharing_text
+  end
+
   private
   
   def refer_friend_iframe

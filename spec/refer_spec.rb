@@ -1,22 +1,32 @@
+require_relative '../lib/refer.rb'
+
 RSpec.describe 'Amaysim Refer a friend' do 
   it 'is accessible when you login' do
-    @refer=Amaysim.new('PROD')
-    expect(@refer.title).to eq('My Amaysim')
+    @refer=Refer.new
+    @refer.login_as('0466134574','AWqasde321')
+    @refer.navigate_to_refer_friend_page
+    expect(@refer.url_page).to include('https://www.amaysim.com.au/my-account/my-amaysim/refer_friends')
+  end
+
+  context 'Can Send an Invite Email' do
+    before(:example) do
+      @refer=Refer.new
+      @refer.login_as('0466134574','AWqasde321')
+      @refer.navigate_to_refer_friend_page     
+    end
+  
+    it 'using 1 email address' do
+      @refer.email_set('jcsupp@gmail.com')
+      expect(@refer.message).to eq('THANKS FOR SHARING THE BIG LOVE')
+    end
+
+    it 'using multiple email address' do
+      @refer.email_set('jcsupp@gmail.com,jcsserv@gmail.com')
+      expect(@refer.message).to eq('THANKS FOR SHARING THE BIG LOVE')
+    end
   end
   
-  it 'can enter an email and submit' do
-    @refer.email_set('jcsupp@gmail.com')
-    expect(@refer.message).to eq('Thank you')
-  end
-
-  it 'can enter multiple email address and submit' do
-    @refer.email_set('jcsupp@gmail.com,jcsserv@gmail.com')
-    expect(@refer.message).to eq('Thank you')
-  end
-
-  it 'can share again' do
-  end
-
-  it 'copy the invitation link to the clipboard' do
+  after(:example) do
+    @refer.close
   end
 end

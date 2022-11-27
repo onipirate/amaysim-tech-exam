@@ -1,0 +1,7 @@
+require_relative 'page_objects/amaysim'
+require_relative 'page_objects/account_page'
+require_relative 'page_objects/corporate_page'
+require_relative 'page_objects/login_page'
+require_relative 'page_objects/refer_friend_page'
+require_relative 'page_objects/services_page'
+require_relative 'page_objects/dashboard_page'
