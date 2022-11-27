@@ -5,3 +5,5 @@ Code for Amaysim Tech Exam
     -- watir
     -- rspec
 3) Download Chromedriver and put in ruby bin folder
+4) Execute spec files (refer_spec.rb)
+5) see video for execution https://www.youtube.com/watch?v=iDjAEplE48U
