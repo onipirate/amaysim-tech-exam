@@ -1,8 +1,8 @@
 require 'watir'
-require 'page-object'
 
 class BrowserContainer
-    def initialize(browser)
+    def initialize(env, browser)
       @browser = browser
+      @env=env
     end
 end

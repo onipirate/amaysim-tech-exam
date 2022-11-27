@@ -9,7 +9,7 @@ class LoginPage < BrowserContainer
     username_field.set username
     password_field.set password
     login_button.click
-    next_page = ServicesPage.new(@browser)
+    next_page = ServicesPage.new(@env, @browser)
     Watir::Wait.until { next_page.loaded? }
     next_page
   end

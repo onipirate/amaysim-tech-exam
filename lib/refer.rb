@@ -2,9 +2,9 @@ require_relative 'helpers.rb'
 
 class Refer
   
-  def initialize
+  def initialize(env)
     @wbrowser=Watir::Browser.new
-    @site=Amaysim.new(@wbrowser)
+    @site=Amaysim.new(env, @wbrowser)
     @site.corporate_page.open
     @site.corporate_page.navigate_to_login_page
   end

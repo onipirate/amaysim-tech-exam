@@ -13,7 +13,7 @@ class AccountPage < BrowserContainer
       rescue => e
         puts "Authorization form is delayed or it does not exists"
       end
-      next_page=DashboardPage.new(@browser)
+      next_page=DashboardPage.new(@env, @browser)
       Watir::Wait.until { next_page.loaded? }
       next_page
     end

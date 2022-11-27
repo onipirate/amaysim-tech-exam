@@ -5,7 +5,7 @@ class DashboardPage < BrowserContainer
 
     def navigate_to_refer_friend_page
         refer_friend_link.click
-        next_page=ReferFriendPage.new(@browser)
+        next_page=ReferFriendPage.new(@env, @browser)
         Watir::Wait.until {next_page.loaded?}
         next_page
     end

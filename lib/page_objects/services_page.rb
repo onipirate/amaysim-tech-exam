@@ -7,7 +7,7 @@ class ServicesPage < BrowserContainer
     
     def navigate_to_account_page
       account_link.click
-      next_page=AccountPage.new(@browser)
+      next_page=AccountPage.new(@env, @browser)
       Watir::Wait.until { next_page.loaded? }
       next_page
     end

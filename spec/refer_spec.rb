@@ -1,8 +1,12 @@
 require_relative '../lib/refer.rb'
 
-RSpec.describe 'Amaysim Refer a friend' do 
+
+RSpec.describe 'Amaysim Refer a friend' do
+
+  let(:env) {'https://www.amaysim.com.au'}
+
   it 'is accessible when you login' do
-    @refer=Refer.new
+    @refer=Refer.new(env)
     @refer.login_as('0466134574','AWqasde321')
     @refer.navigate_to_refer_friend_page
     expect(@refer.url_page).to include('https://www.amaysim.com.au/my-account/my-amaysim/refer_friends')
@@ -10,7 +14,7 @@ RSpec.describe 'Amaysim Refer a friend' do
 
   context 'Can Send an Invite Email' do
     before(:example) do
-      @refer=Refer.new
+      @refer=Refer.new(env)
       @refer.login_as('0466134574','AWqasde321')
       @refer.navigate_to_refer_friend_page     
     end
