@@ -11,7 +11,7 @@ RSpec.describe 'Amaysim Refer a friend' do
 
   it 'is accessible when you login' do
     refer
-    expect(@refer.url_page).to include('https://www.amaysim.com.au/my-account/my-amaysim/refer_friends')
+    expect(@refer.url_page).to include('my-account/my-amaysim/refer_friends')
   end
 
   context 'Can Send an Invite Email' do
